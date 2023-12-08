@@ -12,13 +12,13 @@ declare module "@emotion/react" {
   }
 }
 
-export type Scheme = "light" | "dark"
+export type Scheme = "light" | "dark" | "gangwon"
 
 type Options = {
   scheme: Scheme
 }
 
-export const createTheme = (options: Options): Theme => ({
+export const createTheme = (options: Options): Theme => <Theme>({
   scheme: options.scheme,
   colors: colors[options.scheme],
   variables: variables,

@@ -38,7 +38,8 @@ const StyledWrapper = styled.div`
     border-radius: 1rem;
     width: 100%;
     background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.colors.gray4};
+      // theme.scheme === "light" ? "white" : theme.colors.gray4};
+      theme.scheme === "light" ? "white" : theme.scheme === "gangwon" ? theme.colors.gangwonYellow : theme.colors.gray4};
     @media (min-width: 768px) {
       padding: 1rem;
     }

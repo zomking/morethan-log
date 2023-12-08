@@ -3,7 +3,7 @@ import { getCookie, setCookie } from "cookies-next"
 import { useEffect } from "react"
 import { queryKey } from "src/constants/queryKey"
 
-type Scheme = "light" | "dark"
+type Scheme = "light" | "dark"  | "gangwon"
 type SetScheme = (scheme: Scheme) => void
 
 const useScheme = (): [Scheme, SetScheme] => {
@@ -15,9 +15,9 @@ const useScheme = (): [Scheme, SetScheme] => {
     initialData: "light",
   })
 
-  const scheme = data === "light" ? "light" : "dark"
+  const scheme = data === "light" ? "light" : data === "gangwon" ? "gangwon" : "dark"
 
-  const setScheme = (scheme: "light" | "dark") => {
+  const setScheme = (scheme: "light" | "dark" | "gangwon") => {
     setCookie("scheme", scheme)
 
     queryClient.setQueryData(queryKey.scheme(), scheme)
@@ -27,7 +27,7 @@ const useScheme = (): [Scheme, SetScheme] => {
     if (!window) return
 
     const scheme = getCookie("scheme")
-    setScheme(scheme === "light" ? "light" : "dark")
+    setScheme(scheme ===  "light" ? "light" : data === "gangwon" ? "gangwon" : "dark")
   }, [])
 
   return [scheme, setScheme]
