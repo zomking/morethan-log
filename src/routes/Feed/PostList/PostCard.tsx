@@ -15,47 +15,47 @@ const PostCard: React.FC<Props> = ({ data }) => {
   const category = (data.category && data.category?.[0]) || undefined
 
   return (
-    <StyledWrapper href={`/${data.slug}`}>
-      <article>
-        {category && (
-          <div className="category">
-            <Category>{category}</Category>
-          </div>
-        )}
-        {data.thumbnail && (
-          <div className="thumbnail">
-            <Image
-              src={data.thumbnail}
-              fill
-              alt={data.title}
-              css={{ objectFit: "cover" }}
-            />
-          </div>
-        )}
-        <div data-thumb={!!data.thumbnail} className="content">
-          <header className="top">
-            <h2>{data.title}</h2>
-          </header>
-          <div className="date">
-            <div className="content">
-              {formatDate(
-                data?.date?.start_date || data.createdTime,
-                CONFIG.lang
-              )}
+      <StyledWrapper href={`/${data.slug}`}>
+        <article>
+          {category && (
+              <div className="category">
+                <Category>{category}</Category>
+              </div>
+          )}
+          {data.thumbnail && (
+              <div className="thumbnail">
+                <Image
+                    src={data.thumbnail}
+                    fill
+                    alt={data.title}
+                    css={{ objectFit: "cover" }}
+                />
+              </div>
+          )}
+          <div data-thumb={!!data.thumbnail} className="content">
+            <header className="top">
+              <h2>{data.title}</h2>
+            </header>
+            <div className="date">
+              <div className="content">
+                {formatDate(
+                    data?.date?.start_date || data.createdTime,
+                    CONFIG.lang
+                )}
+              </div>
+            </div>
+            <div className="summary">
+              <p>{data.summary}</p>
+            </div>
+            <div className="tags">
+              {data.tags &&
+                  data.tags.map((tag: string, idx: number) => (
+                      <Tag key={idx}>{tag}</Tag>
+                  ))}
             </div>
           </div>
-          <div className="summary">
-            <p>{data.summary}</p>
-          </div>
-          <div className="tags">
-            {data.tags &&
-              data.tags.map((tag: string, idx: number) => (
-                <Tag key={idx}>{tag}</Tag>
-              ))}
-          </div>
-        </div>
-      </article>
-    </StyledWrapper>
+        </article>
+      </StyledWrapper>
   )
 }
 
@@ -68,7 +68,7 @@ const StyledWrapper = styled(Link)`
     margin-bottom: 1.5rem;
     border-radius: 1rem;
     background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.scheme === "gangwon" ? theme.colors.gangwonYellow : theme.colors.gray4};
+        theme.scheme === "light" ? "white" : theme.colors.gray4};
     transition-property: box-shadow;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
@@ -79,7 +79,7 @@ const StyledWrapper = styled(Link)`
 
     :hover {
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
     > .category {
       position: absolute;

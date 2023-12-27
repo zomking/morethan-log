@@ -30,7 +30,9 @@ const CONFIG = {
 
   // notion configuration (required)
   notionConfig: {
-    pageId: process.env.NOTION_PAGE_ID,
+    //
+    // pageId: process.env.NOTION_PAGE_ID,
+    pageId: 'e5999224a9d24f73a9aa02b27299f51d',
   },
 
   // plugin configuration (optional)
@@ -51,7 +53,7 @@ const CONFIG = {
     config: {
       repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO || "",
       "issue-term": "og:title",
-      label: "💬 Utterances",
+      label: "💬 Comment",
     },
   },
   cusdis: {

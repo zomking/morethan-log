@@ -37,7 +37,8 @@ const Cusdis: React.FC<Props> = ({ id, slug, title }) => {
     }
   }, [onDocumentElementChange])
 
-  return (
+  // @ts-ignore
+    return (
     <>
       <StyledWrapper id="comments">
         <ReactCusdis

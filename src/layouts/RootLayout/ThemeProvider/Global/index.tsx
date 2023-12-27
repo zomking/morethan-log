@@ -6,16 +6,14 @@ import { pretendard } from "src/assets"
 export const Global = () => {
   const theme = useTheme()
 
-    console.log('theme', theme.scheme);
-
   return (
-    <_Global
-      styles={css`
+      <_Global
+          styles={css`
         body {
           margin: 0;
           padding: 0;
           color: ${theme.colors.gray12};
-          background-color: ${theme.scheme === 'gangwon' ? theme.colors.gangwonOrange : theme.colors.gray2};
+          background-color: ${theme.colors.gray2};
           font-family: ${pretendard.style.fontFamily};
           font-weight: ${pretendard.style.fontWeight};
           font-style: ${pretendard.style.fontStyle};
@@ -76,6 +74,6 @@ export const Global = () => {
           border-top: 1px solid ${theme.colors.gray6};
         }
       `}
-    />
+      />
   )
 }

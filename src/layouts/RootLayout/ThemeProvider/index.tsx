@@ -9,14 +9,13 @@ type Props = {
 
 export const ThemeProvider = ({ scheme, children }: Props) => {
   const theme = createTheme({
-    scheme: scheme ===  "light" ? "light" : scheme === "gangwon" ? "gangwon" : "dark",
+    scheme: scheme === "light" ? "light" : "dark",
   })
 
-  console.log('scheme', scheme);
   return (
-    <_ThemeProvider theme={theme}>
-      <Global />
-      {children}
-    </_ThemeProvider>
+      <_ThemeProvider theme={theme}>
+        <Global />
+        {children}
+      </_ThemeProvider>
   )
 }

@@ -17,27 +17,27 @@ const PostDetail: React.FC<Props> = () => {
   const category = (data.category && data.category?.[0]) || undefined
 
   return (
-    <StyledWrapper>
-      <article>
-        {category && (
-          <div css={{ marginBottom: "0.5rem" }}>
-            <Category readOnly={data.status?.[0] === "PublicOnDetail"}>
-              {category}
-            </Category>
+      <StyledWrapper>
+        <article>
+          {category && (
+              <div css={{ marginBottom: "0.5rem" }}>
+                <Category readOnly={data.status?.[0] === "PublicOnDetail"}>
+                  {category}
+                </Category>
+              </div>
+          )}
+          {data.type[0] === "Post" && <PostHeader data={data} />}
+          <div>
+            <NotionRenderer recordMap={data.recordMap} />
           </div>
-        )}
-        {data.type[0] === "Post" && <PostHeader data={data} />}
-        <div>
-          <NotionRenderer recordMap={data.recordMap} />
-        </div>
-        {data.type[0] === "Post" && (
-          <>
-            <Footer />
-            <CommentBox data={data} />
-          </>
-        )}
-      </article>
-    </StyledWrapper>
+          {data.type[0] === "Post" && (
+              <>
+                <Footer />
+                <CommentBox data={data} />
+              </>
+          )}
+        </article>
+      </StyledWrapper>
   )
 }
 
@@ -51,9 +51,9 @@ const StyledWrapper = styled.div`
   border-radius: 1.5rem;
   max-width: 56rem;
   background-color: ${({ theme }) =>
-    theme.scheme === "light" ? "white" : theme.scheme === "gangwon" ? theme.colors.gangwonYellow : theme.colors.gray4};
+      theme.scheme === "light" ? "white" : theme.colors.gray4};
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
   margin: 0 auto;
   > article {
     margin: 0 auto;

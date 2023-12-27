@@ -5,27 +5,27 @@ import styled from "@emotion/styled"
 import { Emoji } from "src/components/Emoji"
 
 const ServiceCard: React.FC = () => {
-  if (!CONFIG.projects) return null
-  return (
-    <>
-      <StyledTitle>
-        <Emoji>🌟</Emoji> Service
-      </StyledTitle>
-      <StyledWrapper>
-        {CONFIG.projects.map((project, idx) => (
-          <a
-            key={idx}
-            href={`${project.href}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiFillCodeSandboxCircle className="icon" />
-            <div className="name">{CONFIG.projects[0].name}</div>
-          </a>
-        ))}
-      </StyledWrapper>
-    </>
-  )
+    if (!CONFIG.projects) return null
+    return (
+        <>
+            <StyledTitle>
+                <Emoji>🌟</Emoji> Service
+            </StyledTitle>
+            <StyledWrapper>
+                {CONFIG.projects.map((project, idx) => (
+                    <a
+                        key={idx}
+                        href={`${project.href}`}
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <AiFillCodeSandboxCircle className="icon" />
+                        <div className="name">{CONFIG.projects[0].name}</div>
+                    </a>
+                ))}
+            </StyledWrapper>
+        </>
+    )
 }
 
 export default ServiceCard
@@ -42,7 +42,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   border-radius: 1rem;
   background-color: ${({ theme }) =>
-    theme.scheme === "light" ? "white" : theme.scheme === "gangwon" ? theme.colors.gangwonYellow : theme.colors.gray4};
+          theme.scheme === "light" ? "white" : theme.colors.gray4};
   > a {
     display: flex;
     padding: 0.75rem;

@@ -9,25 +9,25 @@ type Props = {
 
 const MobileProfileCard: React.FC<Props> = () => {
   return (
-    <StyledWrapper>
-      <div className="top">💻 Profile</div>
-      <div className="mid">
-        <div className="wrapper">
-          <Image
-            src={CONFIG.profile.image}
-            width={90}
-            height={90}
-            css={{ position: "relative" }}
-            alt="profile_image"
-          />
+      <StyledWrapper>
+        <div className="top">💻 Profile</div>
+        <div className="mid">
           <div className="wrapper">
-            <div className="top">{CONFIG.profile.name}</div>
-            <div className="mid">{CONFIG.profile.role}</div>
-            <div className="btm">{CONFIG.profile.bio}</div>
+            <Image
+                src={CONFIG.profile.image}
+                width={90}
+                height={90}
+                css={{ position: "relative" }}
+                alt="profile_image"
+            />
+            <div className="wrapper">
+              <div className="top">{CONFIG.profile.name}</div>
+              <div className="mid">{CONFIG.profile.role}</div>
+              <div className="btm">{CONFIG.profile.bio}</div>
+            </div>
           </div>
         </div>
-      </div>
-    </StyledWrapper>
+      </StyledWrapper>
   )
 }
 
@@ -49,7 +49,7 @@ const StyledWrapper = styled.div`
     margin-bottom: 1rem;
     border-radius: 1rem;
     background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.scheme === "gangwon" ? theme.colors.gangwonYellow : theme.colors.gray4};
+        theme.scheme === "light" ? "white" : theme.colors.gray4};
     > .wrapper {
       display: flex;
       gap: 0.5rem;
